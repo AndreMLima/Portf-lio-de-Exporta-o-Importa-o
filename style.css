@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,500&display=swap');
+
+/*Retirar as configurações padrões para ter mais capacidade de estilização.*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*Escolher a família de fonte usada.*/
+html{
+    font-size: 10px;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', 'Times New Roman', Times, serif;
+}
+
+/*Retirar o estilo dos links.*/
+a{
+    text-decoration: none;
+}
+
+/*Barra de navegação*/
+#navegation{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    background-color: gold;
+    width: 100%;
+    z-index: 10;
+    height: 6%;
+    text-decoration: none;
+}
+
+#navegation .buttom{
+    align-items: center;
+    text-align: justify;
+    background-color: gold;
+    padding: .5rem 4rem;
+    margin: 0rem 2rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: black;
+}
+
+#navegation .buttom:hover{
+    color: black;
+    font-weight: 400;
+    background-color: rgb(253, 227, 80);
+    transition: .6s ease;
+    transition-property: background-color, color;
+}
+
+/*Animação da barra de rolagem quando se diminui ou aumenta a tela do navegador.*/
+@media only screen and (max-width: 1100px) {
+    #navegation{
+        animation: mymove1 5s ease forwards;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    #navegation{
+        animation: mymove2 2s ease forwards;
+    }
+}
+
+@keyframes mymove1{
+    0% {top: 0rem}
+    100%{top: -50rem}
+}
+
+@keyframes mymove2{
+    0% {top: -50rem}
+    100%{top: 0rem}
+}
+
+/*Colocar a imagem da primeira página*/
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+p{
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+}
+
+/*Dimensionar o container principal para toda a página.*/
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title{
+    font-size: 4rem;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/*Colocar a imagem de fundo.*/
+#presentation{
+    background-image: url(./images/port-1.jpg);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}
+
+/*Filtro da imagem de fundo.*/
+#presentation::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/*Editar o texto principal.*/
+#presentation h1{
+    display: block;
+    width: fit-content;
+    font-size: 5rem;
+    position: relative;
+    color: transparent;
+    animation: text_reveal .5s ease forwards;
+    animation-delay: 1.5s;
+}
+
+/*Delay da animação do texto.*/
+#presentation h1:nth-child(1){
+    animation-delay: 1s;
+}
+#presentation h1:nth-child(2){
+    animation-delay: 2s;
+}
+#presentation h1:nth-child(3){
+    animation: text_reveal_name .5s ease forwards;
+    animation-delay: 3s;
+}
+
+
+/*Editar o botão de link.*/
+#presentation .cta{
+    display: inline-block;
+    padding: 10px 30px;
+    color: gold;
+    background-color: transparent;
+    border: 2px solid gold;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-top: 20px;
+    transition: .6s ease;
+    transition-property: background-color, color;
+}
+
+/*Editar o hover do botão de link.*/
+#presentation .cta:hover{
+    color: white;
+    font-weight: 500;
+    background-color: gold;
+}
+
+/*Criar um contâiner ao redor dos textos para facilitar na animação.*/
+#presentation h1 span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    animation: text_reveal_box 1s ease;
+    animation-delay: .5s;
+    background-color: gold;
+}
+
+/*Delay da animação do bloco de span.*/
+#presentation h1:nth-child(1) span{
+    animation-delay: .5s;
+}
+#presentation h1:nth-child(2) span{
+    animation-delay: 1.5s;
+}
+#presentation h1:nth-child(3) span{
+    animation-delay: 2.5s;
+}
+
+
+/*Animação da apresentação.*/
+
+@keyframes text_reveal{
+    100%{
+        color: white;
+    }
+}
+
+@keyframes text_reveal_box{
+    50%{
+         width: 100%;
+         left: 0;
+    }
+    100%{
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes text_reveal_name{
+    100%{
+        color: gold;
+        font-weight: 700;
+    }
+}
+
+
+/*Seção de Potfólio*/
+
+#portfolio{
+    background-color: gray;
+}
+
+#portfolio .portfolio{
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#portfolio .portfolio-header h1{
+    margin-bottom: 50px;
+}
+
+#portfolio .all-projects{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#portfolio .project-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+    height: 50%;
+    margin: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#portfolio .project-info{
+    padding: 30px;
+    flex-basis: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(60deg, #5a10b5 0%, #002349 100%);
+    color: white;
+}
+
+#portfolio .project-info h1{
+    font-size: 4rem;
+    font-weight: 500px;
+}
+
+#portfolio .project-info h2{
+    font-size: 2rem;
+    font-weight: 500px;
+    margin-top: 10px;
+}
+
+#portfolio .project-info p{
+    font-size: 1rem;
+    font-weight: 300px;
+    margin-top: 6px;
+}
+
+#portfolio .project-img{
+    flex-basis: 50%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+#portfolio .project-img:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    opacity: 0.7;
+}
+
+#portfolio .project-item:hover .project-img img{
+    transform: scale(1.1);    
+}
+
+#portfolio .project-img img{
+    transition: 0.7s ease transform;
+}
+
+/*Criar regras para tamanho de telas diferentes.*/
+
+@media only screen and (min-width: 768px) {
+    #portfolio .project-item{
+        flex-direction: row;
+        height: 400px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+    #portfolio .all-projects .project-info{
+        height: 100%;
+    }
+    #portfolio .all-projects .project-img{
+        height: 100%;
+    }
+    #portfolio .project-item:nth-child(even){
+        flex-direction: row-reverse;
+    }
+}
+
+
+/*Seção de Benefícios*/
+
+#our-beneficts{
+    min-height: 100vh;
+    width: 100%;
+    height: 80%;
+    background-color: white;
+}
+
+.title-beneficts{
+    font-size: 4rem;
+    font-weight: 500;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#beneficts-order{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 55rem;
+}
+
+.benefict-img{
+    display: flex;
+    flex-direction: row;
+    width: 7em;
+}
+
+.benefict-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: none;
+}
+
+.benefict-info{
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
